@@ -30,28 +30,59 @@ function mix($path, $manifestDirectory = '')
     }
 
     static $manifest;
+    
+    // Определяем тип файла по расширению
+    $extension = pathinfo($path, PATHINFO_EXTENSION);
+    $staticFiles = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp', 'ico', 'woff', 'woff2', 'ttf', 'eot'];
+    
+    // Если это статический файл (изображение, шрифт и т.д.)
+    if (in_array(strtolower($extension), $staticFiles)) {
+        // Проверяем существование файла в папке images
+        $imagePath = dirname(__FILE__, 2) . '/images/' . $path;
+        if (file_exists($imagePath)) {
+            return get_template_directory_uri() . '/images/' . $path;
+        }
+        
+        // Если файла нет в images, проверяем в dist
+        $distPath = dirname(__FILE__, 2) . '/assets/dist/' . $path;
+        if (file_exists($distPath)) {
+            return get_template_directory_uri() . '/assets/dist/' . $path;
+        }
+        
+        // Если файл нигде не найден, возвращаем путь к images
+        return get_template_directory_uri() . '/images/' . $path;
+    }
+    
+    // Для JS и CSS файлов используем manifest
     if (!starts_with($path, '/')) {
         $path = "/{$path}";
     }
+    
     if ($manifestDirectory && !starts_with($manifestDirectory, '/')) {
         $manifestDirectory = "/{$manifestDirectory}";
     }
+    
     $rootDir = dirname(__FILE__, 2);
+    
     if (!$manifest){
         $manifestPath = $rootDir . $manifestDirectory . "mix-manifest.json";
         if (!file_exists($manifestPath)) {
-            throw new Exception("The Mix manifest dors not exist.");
+            return get_template_directory_uri() . $manifestDirectory . $path;
         }
         $manifest = json_decode(file_get_contents($manifestPath), true);
     }
+    
+    if (!isset($manifest[$path])) {
+        return get_template_directory_uri() . $manifestDirectory . $path;
+    }
+    
     if (starts_with($manifest[$path], '/')){
         $manifest[$path] = ltrim($manifest[$path],'/');
     }
     
-    $path = $manifestDirectory . $manifest[$path];
-    return  get_template_directory_uri() . $path;
+    $finalPath = $manifestDirectory . $manifest[$path];
+    return get_template_directory_uri() . $finalPath;
 }
-
 
 
 
