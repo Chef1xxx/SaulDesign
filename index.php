@@ -10,7 +10,6 @@ get_header();
             <div class="col-md-7 col-12">
                 <div class="d-flex flex-column">
                     <h1 class="big">
-                        <img class="arrow1" src="<?php echo mix('images/arrow1.svg') ?>">
                         CREATIVE UI <br><span class="blue">DESIGNER</span>
                     </h1>
                     <div class="d-flex" style="gap:24px">
@@ -22,9 +21,7 @@ get_header();
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <img class="group1" src="<?php echo mix('images/group1.svg') ?>">
-                <img class="man1" src="<?php echo mix('images/man1.svg') ?>">
-                <img class="ecllipse3" src="<?php echo mix('images/Ellipse 3.svg') ?>">
+                <img class="p1" src="<?php echo mix('images/p1.svg') ?>">
             </div>
         </div>
     </div>
@@ -32,9 +29,9 @@ get_header();
         <div class="about-me">
             <div class="row">
                 <div class="col-md-4 col-12">
-                    <img class="arrow2" src="<?php echo mix('images/arrow2.svg') ?>">
-                    <img class="note" src="<?php echo mix('images/note.svg') ?>" alt="нота">
-                    <img class="lightbulb" src="<?php echo mix('images/lightbulb.svg') ?>" alt="лампочка">
+                    <img class="arrow2 dd" src="<?php echo mix('images/arrow2.svg') ?>">
+                    <img class="note dd" src="<?php echo mix('images/note.svg') ?>" alt="нота">
+                    <img class="lightbulb dd" src="<?php echo mix('images/lightbulb.svg') ?>" alt="лампочка">
                     <h1>About <span class="blue"> me</span></h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit
@@ -46,10 +43,7 @@ get_header();
                     </p>
                 </div>
                 <div class="col-md-7 col-12">
-                    <img class="bg2" src="<?php echo mix('images/bg2.svg') ?>" alt="">
-                    <img class="man2" src="<?php echo mix('images/man2.svg') ?>" alt="">
-                    <img class="zzz" src="<?php echo mix('images/zzz.svg') ?>" alt="">
-                    <img class="ecllipse4" src="<?php echo mix('images/Ellipse 3.svg') ?>" alt="">
+                    <img class="p2" src="<?php echo mix('images/p2.svg') ?>" alt="">
                 </div>
             </div>
         </div>
@@ -83,13 +77,11 @@ get_header();
     <div class="my-container">
         <img class="keyboard" src="<?php echo mix('images/keyboard.svg') ?>" alt="">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <h1>Got a project in <br> <span class="blue">mind?</span></h1>
-                <img class="man3" src="<?php echo mix('images/man3.svg') ?>" alt="">
-                <img class="ecllipse5" src="<?php echo mix('images/Ellipse 3.svg') ?>" alt="">
-                <img class="arrow3" src="<?php echo mix('images/arrow3.svg') ?>" alt="">
+                <img class="p3" src="<?php echo mix('images/p3.svg') ?>" alt="">
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                     <?php echo do_shortcode('[contact-form-7 id="784f8bf" title="Без названия"]');?>
             </div>
         </div>

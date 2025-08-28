@@ -12,6 +12,8 @@ function assets_enqueue_script()
     wp_enqueue_script('app-js');
     wp_register_style('app-css', mix('css/app.css'));
     wp_enqueue_style('app-css');
+    wp_register_style('app-scss', mix('css/app.scss'));
+    wp_enqueue_style('app-scss');
 }
 add_action(
     'after_setup_theme',
